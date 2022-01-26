@@ -7,6 +7,7 @@
 .metals/
 .ammonite/
 project/metals.sbt
+project/.bloop
 metals.sbt
 metals/project/
 .scalafmt.conf
