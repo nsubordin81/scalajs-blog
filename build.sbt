@@ -1,6 +1,6 @@
 enablePlugins(ScalaJSPlugin)
 
 name := "Scala.js Blog"
-scalaVersion := "2.13.1"
+scalaVersion := "3.0.2"
 
 scalaJSUseMainModuleInitializer := true

@@ -3,6 +3,15 @@
 *.log
 *~
 
+# metals
+project/
+.metals/
+.ammonite/
+metals.sbt
+metals/project/
+.scalafmt.conf
+
+
 # sbt specific
 dist/*
 target/
@@ -22,10 +31,30 @@ project/local-plugins.sbt
 .settings
 classes/
 
-# idea
-.idea
-.idea_modules
-/.worksheet/
+# Fundamental to the build
+/.bsp/
+/scalalib/fetchedSources/
+/partest/fetchedSources/
+/linker-interface/**/scalajs-logging-src/
+/linker-interface/**/scalajs-logging-src-jars/
+/node_modules/
+
+# IDE specific
+.cache
+.classpath
+.project
+.settings/
+/.idea/
+/.idea_modules/
+bin/
+/.bloop/
+/.metals/
+/project/**/metals.sbt
+/.vscode/
+
+# User specific
+/.jvmopts
+/.sbtopts
 
 # Dotty-IDE
 .dotty-ide-artifact
