@@ -4,9 +4,9 @@
 *~
 
 # metals
-project/
 .metals/
 .ammonite/
+project/metals.sbt
 metals.sbt
 metals/project/
 .scalafmt.conf
@@ -17,6 +17,8 @@ dist/*
 target/
 lib_managed/
 src_managed/
+project/target
+project/project
 project/boot/
 project/plugins/project/
 project/local-plugins.sbt
