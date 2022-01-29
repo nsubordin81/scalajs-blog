@@ -31,10 +31,9 @@ object TutorialTest {
       assert(button != null && button.textContent == "Click me!")
       assert(messageCount == 0)
 
-      for (c <- 1 to 5) {
+      for c <- 1 to 5 do
         button.click()
         assert(messageCount == c)
-      }
     }
   }
 }
