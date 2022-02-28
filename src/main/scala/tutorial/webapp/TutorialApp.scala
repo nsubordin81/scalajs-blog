@@ -16,12 +16,24 @@ object TutorialApp:
   def main(args: Array[String]): Unit =
     document.addEventListener("DOMContentLoaded", (e: dom.Event) => setupUI())
 
-  def setupUI(): Unit =
+  def toButton(label: String) = 
     val button = document.createElement("button")
-    button.textContent = "Click me!"
-    button.addEventListener(
-      "click",
-      (e: dom.MouseEvent) => addClickedMessage()
-    )
+    button.textContent = label
+    button.addEventListener("click", (e: dom.MouseEvent) => addClickedMessage())
     document.body.appendChild(button)
-    appendPar(document.body, "Hello Taylor")
+    
+  def setupUI(): Unit =
+    appendPar(document.body, "SynapseFlux")
+    val menuItems = List("Bio", "Projects and Talks", "Blog", "Art", "Behind The Wall")
+    for item <- menuItems yield
+       toButton(item)
+
+
+    // val button = document.createElement("button")
+    // button.textContent = "Click me!"
+    // button.addEventListener(
+    //   "click",
+    //   (e: dom.MouseEvent) => addClickedMessage()
+    // )
+    // document.body.appendChild(button)
+    // appendPar(document.body, "Hello Taylor")
