@@ -8,9 +8,7 @@ libraryDependencies += "com.github.japgolly.scalajs-react" %%% "core" % "2.0.1"
 Compile / npmDependencies ++= Seq("react" -> "17.0.2", "react-dom" -> "17.0.2")
 
 scalaJSUseMainModuleInitializer := true
-libraryDependencies += ("org.scala-js" %%% "scalajs-dom" % "1.1.0").cross(
-  CrossVersion.for3Use2_13
-)
+libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "2.1.0"
 
 jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv()
 libraryDependencies += "com.lihaoyi" %%% "utest" % "0.7.11" % "test"
