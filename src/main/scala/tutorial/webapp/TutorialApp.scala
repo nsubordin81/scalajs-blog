@@ -6,15 +6,29 @@ import scala.scalajs.js.annotation.JSExportTopLevel
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import scala.language.implicitConversions
+import scala.scalajs.js.annotation.JSExport
 
-val NoArgs =
-  ScalaComponent
-    .builder[Unit]
-    .renderStatic(<.div("Hello!"))
+object TutorialApp {
+
+  def main(args: Array[String]): Unit = {
+    val root = document.getElementById("root")
+    HelloMessage("John").renderIntoDOM(document)
+  }
+  val HelloMessage = ScalaComponent
+    .builder[String]
+    .render($ => <.div("Hello ", $.props))
     .build
 
-def main(args: Array[String]): Unit =
-  NoArgs().renderIntoDOM(document.body)
+}
+// val NoArgs =
+//   ScalaComponent
+//     .builder[Unit]
+//     .renderStatic(<.div("Hello!"))
+//     .build
+
+// def main(args: Array[String]): Unit =
+// println("hello")
+// NoArgs().renderIntoDOM(document.body)
 
 // def appendPar(targetNode: dom.Node, text: String): Unit =
 //   val parNode = document.createElement("p")
