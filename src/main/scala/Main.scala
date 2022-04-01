@@ -20,11 +20,13 @@ object ScalaJSBlog {
         button("programming"),
         button("the space behind")
       )
-      // main(section("this is some text")),
+      val main = com.raquo.laminar.api.L.main(section("finally I'm in main"))
       val foot = footer("author Taylor Bird")
       render(appContainer, head)
       render(appContainer, navigation)
+      render(appContainer, main)
       render(appContainer, foot)
+
     }(unsafeWindowOwner)
 }
 
