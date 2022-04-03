@@ -3,49 +3,35 @@ import com.raquo.laminar.api.L.{*, given}
 
 // val helloDiv: Div = dev("Hello, World!")
 
-// @main def hello: Unit =
-//   println("Hello world!")
-//   println(msg)
-
 // def msg = "I was compiled by Scala 3. :)"
 object ScalaJSBlog {
   def main(args: Array[String]): Unit =
     documentEvents.onDomContentLoaded.foreach { _ =>
       val appContainer = dom.document.querySelector("#appContainer")
-      val head = header(h1("Synapse Flux"))
-      val navigation = nav(
-        button("bio"),
-        button("music"),
-        button("art"),
-        button("programming"),
-        button("the space behind")
+      val rootElement = div(
+        header(
+          cls("SiteTitle"),
+          h1("Synapse Flux"),
+          p("a site about learning and the thrill of new things")
+        ),
+        nav(
+          cls("TopNavigation"),
+          button("bio"),
+          button("music"),
+          button("art"),
+          button("programming"),
+          button("the space behind")
+        ),
+        com.raquo.laminar.api.L.main(
+          cls("Contents"),
+          article(
+            header(cls("ArticleHeader"), "Here We Are"),
+            section(cls("IntroParagraph"), "finally I'm in main")
+          )
+        ),
+        footer("author Taylor Bird")
       )
-      val main = com.raquo.laminar.api.L.main(section("finally I'm in main"))
-      val foot = footer("author Taylor Bird")
-      render(appContainer, head)
-      render(appContainer, navigation)
-      render(appContainer, main)
-      render(appContainer, foot)
+      render(dom.document.querySelector("#appContainer"), rootElement)
 
     }(unsafeWindowOwner)
 }
-
-// val nameVar = Var(initial = "world")
-
-// val rootElement = div(
-//   label("Your name: "),
-//   input(
-//     onMountFocus,
-//     placeholder := "Enter your name here",
-//     inContext { thisNode => onInput.map(_ => thisNode.ref.value) --> nameVar }
-//   ),
-//   span(
-//     "Hello, ",
-//     child.text <-- nameVar.signal.map(_.toUpperCase)
-//   )
-// )
-
-// // In most other examples, containerNode will be set to this behind the scenes
-// val containerNode = dom.document.querySelector("#mdoc-html-run0")
-
-// render(containerNode, rootElement)
